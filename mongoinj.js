@@ -4,6 +4,8 @@ if (Meteor.isServer) {
 
   Meteor.methods({
     addUser: function (username, password) {
+      check(username, String);
+      check(password, String);
       Users.insert({
         username: username,
         password: password
@@ -12,6 +14,9 @@ if (Meteor.isServer) {
     },
 
     changePassword: function (username, oldPassword, newPassword) {
+      check(username, String);
+      check(oldPassword, String);
+      check(newPassword, String);
       var numAffected = Users.update({
         username: username,
         password: oldPassword
