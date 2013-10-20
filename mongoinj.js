@@ -15,7 +15,6 @@ if (Meteor.isServer) {
 
     changePassword: function (username, oldPassword, newPassword) {
       check(username, String);
-      check(oldPassword, String);
       check(newPassword, String);
       var numAffected = Users.update({
         username: username,
